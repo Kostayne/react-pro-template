@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import * as RM from "react-modifier";
 import "./main.scss";
 
 const App = () => {
@@ -13,5 +14,3 @@ const App = () => {
 
 const appRoot = document.getElementById("app-root");
 ReactDOM.render(<App />, appRoot);
-
-console.log("Here!");

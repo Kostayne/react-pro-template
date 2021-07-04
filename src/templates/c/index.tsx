@@ -13,7 +13,7 @@ export interface __cname__Props extends RM.IModifiableProps<__cname__Theme> {
 export class C extends RM.ModifiableComponent<__cname__Theme, __cname__Props> {
     renderThemed(): ReactElement {
         return (
-            <div>
+            <div className="__pname__">
                 
             </div>
         );
@@ -21,5 +21,5 @@ export class C extends RM.ModifiableComponent<__cname__Theme, __cname__Props> {
 }
 
 export const def__cname__Theme: __cname__Theme = {
-    head: RM.createModifier('')
+    head: RM.createMod()
 }
