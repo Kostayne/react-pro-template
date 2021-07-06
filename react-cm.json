@@ -2,14 +2,14 @@
     "templates": [
         {
             "name": "fn",
-            "path": "C:\\Users\\fucko\\Desktop\\projects\\code-review-net\\src\\templates\\fn"
+            "path": "./src/templates/fn"
         },
 
         {
             "name": "c",
-            "path": "C:\\Users\\fucko\\Desktop\\projects\\code-review-net\\src\\templates\\c"
+            "path": "./src/templates/c"
         }
     ],
 
-    "components": "C:\\Users\\fucko\\Desktop\\projects\\code-review-net\\src\\components"
+    "components": "./src/components"
 }
