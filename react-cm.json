@@ -2,14 +2,21 @@
     "templates": [
         {
             "name": "fn",
-            "path": "./src/templates/fn"
+            "path": "./src/templates/fn",
+            "outDir": "./src/components/"
         },
 
         {
-            "name": "c",
-            "path": "./src/templates/c"
-        }
-    ],
+            "name": "cl",
+            "path": "./src/templates/c",
+            "outDir": "./src/components/"
+        },
 
-    "components": "./src/components"
+        {
+            "name": "page",
+            "path": "./src/templates/page",
+            "outDir": "./src/pages/",
+            "subDir": false
+        }
+    ]
 }

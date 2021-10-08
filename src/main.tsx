@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as RM from "react-modifier";
-import "./main.scss";
+import "./main.module.scss";
 
 const App = () => {
     return (

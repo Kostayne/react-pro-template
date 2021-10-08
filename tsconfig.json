@@ -6,10 +6,14 @@
         "allowJs": true,
         "esModuleInterop": true,
         "rootDirs": ["src/components", "src/pages"],
+
         "paths": {
             "$c/*": ["./src/components/*"],
             "$p/*": ["./src/pages/*"],
-            "$u/*": ["./src/utils/*"]
+            "$u/*": ["./src/utils/*"],
+            "$a/*": ["./src/assets/*"]
         }
-    }
+    },
+
+    "exclude": ["./src/templates"]
 }

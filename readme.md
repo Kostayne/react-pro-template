@@ -1,29 +1,51 @@
 # Pro react template
-This is minimal template for creating extendable react apps.
+This is a minimal template for creating extendable react apps.
 
-## Content
+## Stack
 - Typescript
-- Sass
-- K-react-cm cfg
+- Module sass (scss)
+- Get module style
+- K-react-cm
 - React, react-dom
+- React-modifier
 - Webpack, babel
 
-## Get template
-git clone https://github.com/Kostayne/react-pro-template.git
-
 ## How to use
-Install all dependecies
-``` 
+Install dependecies and dev tools
+``` bash
 npm i
+npm i -g k-react-cm # cli component manager
 ```
 
-Checkout [k-react-cm](https://www.npmjs.com/package/k-react-cm) and install it globally if you have'nt
+Change page template in src/index.html
+```html
+<!-- from -->
+<head>
+    <title>Site name</title>
+</head>
 
-```
-npm i -g k-react-cm
+<!-- to -->
+<head>
+    <title>Your actual site name</title>
+</head>
 ```
 
-Start app dev server
+Better imports
+``` ts
+// original imports
+import someComponent from "../components/some/some.tsx";
+import somePage from "./pages/somePage";
+import someUtil from "../utils/someUtil";
+import someAsset from "../assets/someAsset.png";
+
+// using symlinks & index.tsx file name
+import someComponent from "$c/some";
+import somePage from "$p/some";
+import someUtil from "$u/someUtil";
+import someAsset from "$a/someAsset.png";
+```
+
+Start dev server
 ```
 npm run dev
 ```

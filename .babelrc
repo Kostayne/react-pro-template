@@ -9,7 +9,8 @@
                 "alias": {
                     "$c": "./src/components",
                     "$p": "./src/pages",
-                    "$u": "./src/utils"
+                    "$u": "./src/utils",
+                    "$a": "./src/assets"
                 }
             }
         ]

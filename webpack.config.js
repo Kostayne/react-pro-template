@@ -3,18 +3,22 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
 
+const isDev = process.env.NODE_ENV == 'development';
+
 module.exports = {
     entry: path.join(__dirname, "src", "main.tsx"),
     mode: "development",
+
     output: {
         path: path.join(__dirname, "build"),
         filename: "react_bundle.js"
     },
+
     devServer: {
-        port: 3000,
-        contentBase: path.join(__dirname, "build"),
-        historyApiFallback: true
+        port: 3005,
+        hot: true,
     },
+
     module: {
         rules: [
             {
@@ -27,25 +31,52 @@ module.exports = {
             },
 
             {
-                test: /\.scss$/,
+                test: /\.module\.s(a|c)ss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    "css-loader",
-                    "sass-loader"
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: true
+                        }
+                    },
+                    
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: isDev,
+                        }
+                    }
                 ]
             },
 
             {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader"]
+                test: /\.s(a|c)ss$/,
+                exclude: /\.module.(s(a|c)ss)$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: isDev
+                        }
+                    }
+                ]
             }
         ]
     },
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, "build", "index.html")
+            template: "src/index.html",
+            alwaysWriteToDisk: true,
+            minify: !isDev,
         }),
-        new MiniCssExtractPlugin({ filename: "styles_bundle.css" })
+
+        new MiniCssExtractPlugin({ 
+            filename: isDev? '[name].css' : '[name].[fullhash].css',
+            chunkFilename: isDev? '[id].css' : '[id].[fullhash].css'
+        })
     ]
 }
